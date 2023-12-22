@@ -1,6 +1,7 @@
 package principal;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -48,6 +49,9 @@ public class Menu {
 		// Criação do Menu -- Instrução ao cliente.
 		// Utilização do {...} while - executa o menu ao menos 1x.
 		do {
+			// Try catch para impedir que pegue input de string em número. 
+			try {
+				
 			System.out.println("-----------------------------------------------------------------");
 			System.out.println("                         GEEK EMPORIUM                           ");
 			System.out.println("             Sua loja online para produtos geek!                 ");
@@ -62,6 +66,11 @@ public class Menu {
 			System.out.println("-----------------------------------------------------------------");
 			System.out.println("                  ENTRE COM A OPÇÃO DESEJADA:                    ");
 			opcao = leia.nextInt();
+			} catch (InputMismatchException e) {
+		        System.out.println("Por favor, insira um número correspondente à opção desejada.");
+		        leia.next(); // P/ evitar loop infinito
+		        opcao = 0;
+		    }
 
 			switch (opcao) {
 			case 1: // Produtos e categorias
@@ -87,7 +96,14 @@ public class Menu {
 					System.out.println("2 - Jessica Jones. ");
 					System.out.println("3 - Homem-Aranha. ");
 					System.out.println("OPÇÃO: ");
-					opcaoQuadrinhos = leia.nextInt();
+					// Try catch para impedir que pegue input de string em número. 
+					try {
+						opcaoQuadrinhos = leia.nextInt();
+					}catch(InputMismatchException e) {
+			            System.out.println("Entrada inválida. Por favor, insira um número válido.");
+			            leia.next(); // Limpar o buffer do scanner
+			            continue;
+					}
 
 					// Nesting dnv.
 					switch (opcaoQuadrinhos) {
@@ -116,7 +132,14 @@ public class Menu {
 					System.out.println("2 - HADES 2. ");
 					System.out.println("3 - Baldur's Gate 3. ");
 					System.out.println("OPÇÃO: ");
-					opcaoJogos = leia.nextInt();
+					// Try catch para impedir que pegue input de string em número. 
+					try {
+						opcaoJogos = leia.nextInt();
+					} catch (InputMismatchException e) {
+			            System.out.println("Entrada inválida. Por favor, insira um número válido.");
+			            leia.next(); // Limpar o buffer do scanner
+			            continue;
+			            }
 
 					// Nesting switch.
 					switch (opcaoJogos) {
@@ -143,7 +166,15 @@ public class Menu {
 					System.out.println("2 - Action Figure Batman ");
 					System.out.println("3 - Action Figure Harley Quinn ");
 					System.out.println("OPÇÃO: ");
-					opcaoColecionaveis = leia.nextInt();
+					// Try catch para impedir que pegue input de string em número. 
+					try { 
+						opcaoColecionaveis = leia.nextInt();
+					}catch(InputMismatchException e) {
+			            System.out.println("Entrada inválida. Por favor, insira um número válido.");
+			            leia.next(); // Limpar o buffer do scanner
+			            continue;
+			            }
+					
 					// Nesting switch.
 					switch (opcaoColecionaveis) {
 					case 1:
@@ -170,7 +201,14 @@ public class Menu {
 					System.out.println("2 - Casacos ");
 					System.out.println("3 - Meias ");
 					System.out.println("OPÇÃO: ");
-					opcaoVestuario = leia.nextInt();
+					// Try catch para impedir que pegue input de string em número. 
+					try {
+						opcaoVestuario = leia.nextInt();
+					}catch(InputMismatchException e) {
+			            System.out.println("Entrada inválida. Por favor, insira um número válido.");
+			            leia.next(); // Limpar o buffer do scanner
+			            continue;
+			            }
 					// Nesting switch.
 					switch (opcaoVestuario) {
 					case 1:
@@ -196,7 +234,14 @@ public class Menu {
 					System.out.println("2 - Organizador de livros. ");
 					System.out.println("3 - Porta-lápis. ");
 					System.out.println("OPÇÃO: ");
-					opcaoDecoracao = leia.nextInt();
+					// Try catch para impedir que pegue input de string em número. 
+					try { 
+						opcaoDecoracao = leia.nextInt();
+					} catch(InputMismatchException e) {
+			            System.out.println("Entrada inválida. Por favor, insira um número válido.");
+			            leia.next(); // Limpar o buffer do scanner
+			            continue;
+					}
 
 					// Nesting switch.
 					switch (opcaoDecoracao) {
@@ -222,7 +267,14 @@ public class Menu {
 					System.out.println("1 - Lâmpadas LED inteligentes. ");
 					System.out.println("2 - Óculos de Realidade Virtual. ");
 					System.out.println("OPÇÃO: ");
-					opcaoTecnologia = leia.nextInt();
+					// Try catch para impedir que pegue input de string em número. 
+					try {
+						opcaoTecnologia = leia.nextInt();
+					}catch(InputMismatchException e) {
+			            System.out.println("Entrada inválida. Por favor, insira um número válido.");
+			            leia.next(); // Limpar o buffer do scanner
+			            continue;
+					}
 					// Nesting switch.
 					switch (opcaoTecnologia) {
 					case 1:
@@ -252,7 +304,15 @@ public class Menu {
 				System.out.println("                        CRIAR CONTA                              ");
 				System.out.println("-----------------------------------------------------------------");
 				System.out.println("Digite o número da conta: ");
-				numeroConta = leia.nextInt();
+				// Try catch para impedir que pegue input de string em número. 
+				try { 
+					numeroConta = leia.nextInt();
+				}catch(InputMismatchException e) {
+		            System.out.println("Entrada inválida. Por favor, insira números.");
+		            leia.next(); // Limpar o buffer do scanner
+		            continue;
+				}
+				// Como faz pra impedir número em lugar de string? Esqueci 
 				System.out.println("Digite o nome do titular: ");
 				leia.skip("\\R?");
 				titular = leia.nextLine();
@@ -279,7 +339,9 @@ public class Menu {
 				System.out.println("                 BUSCAR CONTA POR NÚMERO                         ");
 				System.out.println("-----------------------------------------------------------------");
 				System.out.println("Digite o número da conta: ");
-				 numeroContaBuscar = leia.nextInt(); //JACQUE E LIZA TBM NÃO VOU MENTIR EU PEDI ARREGO AQUI OK
+				// Try catch para impedir que pegue input de string em número. 
+				 try {
+					 numeroContaBuscar = leia.nextInt(); //JACQUE E LIZA TBM NÃO VOU MENTIR EU PEDI ARREGO AQUI OK
 				 for (Conta conta : contas) { // EU AINDA ME CONFUNDO COM O FOR EACH ME PERDOA
 				        if (conta.getNumero() == numeroContaBuscar) { 
 				            System.out.println("Conta encontrada:");
@@ -291,6 +353,11 @@ public class Menu {
 				    }
 
 				break;
+				 } catch(InputMismatchException e) {
+			            System.out.println("Entrada inválida. Por favor, insira números.");
+			            leia.next(); // Limpar o buffer do scanner
+			            continue;
+				 }
 			case 6: // Apagar conta.
 				System.out.println("-----------------------------------------------------------------");
 				System.out.println("                 APAGAR CONTA                                     ");
