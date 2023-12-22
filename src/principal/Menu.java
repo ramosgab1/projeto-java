@@ -19,7 +19,8 @@ public class Menu {
 
 		int opcao = 0, numeroConta, opcaoProduto, opcaoQuadrinhos, opcaoJogos, opcaoColecionaveis;
 		int opcaoVestuario, opcaoDecoracao, opcaoTecnologia, numeroContaApagar;
-		int numeroContaBuscar; 
+		int numeroContaBuscar;
+		boolean voltar = false; 
 		String titular;
 
 		// Criando carrinho e produtos;
@@ -83,6 +84,7 @@ public class Menu {
 				System.out.println("4 - VESTUÁRIO: Camisetas, acessórios e moda geek.");
 				System.out.println("5 - DECORAÇÃO: Pôsteres, canecas e itens de decoração temáticos.");
 				System.out.println("6 - TECNOLOGIA: Acessórios para celular e produtos eletrônicos.");
+				System.out.println("7 - Voltar ao MENU PRINCIPAL. ");
 				System.out.println("-----------------------------------------------------------------");
 				opcaoProduto = leia.nextInt();
 
@@ -95,6 +97,7 @@ public class Menu {
 					System.out.println("1 - X-MEN. ");
 					System.out.println("2 - Jessica Jones. ");
 					System.out.println("3 - Homem-Aranha. ");
+					System.out.println("4 - Voltar ao MENU PRINCIPAL. ");
 					System.out.println("OPÇÃO: ");
 					// Try catch para impedir que pegue input de string em número. 
 					try {
@@ -119,6 +122,13 @@ public class Menu {
 						carrinho.adicionarItem(quadrinho3);
 						System.out.println("O quadrinho 'HOMEM-ARANHA' foi adicionado ao seu carrinho!");
 						break;
+					case 4: 
+						voltar = true; 
+						if (voltar) {
+						    voltar = false;
+						    continue; 
+					}
+					break;
 					default:
 						System.out.println("Não encontramos essa opção! Tente outra vez!");
 						break;
@@ -131,6 +141,7 @@ public class Menu {
 					System.out.println("1 - HADES. ");
 					System.out.println("2 - HADES 2. ");
 					System.out.println("3 - Baldur's Gate 3. ");
+					System.out.println("4 - Voltar ao MENU PRINCIPAL. ");
 					System.out.println("OPÇÃO: ");
 					// Try catch para impedir que pegue input de string em número. 
 					try {
@@ -154,6 +165,12 @@ public class Menu {
 						carrinho.adicionarItem(jogo3);
 						System.out.println("O jogo 'Baldur's Gate 3' foi adicionado ao seu carrinho!");
 						break;
+					case 4: 
+						voltar = true; 
+						if (voltar) {
+						    voltar = false;
+						    continue; 
+					}
 					default:
 						System.out.println("Não encontramos essa opção! Tente outra vez!");
 						break;
@@ -165,6 +182,7 @@ public class Menu {
 					System.out.println("1 - Figma Hatsune Miku ");
 					System.out.println("2 - Action Figure Batman ");
 					System.out.println("3 - Action Figure Harley Quinn ");
+					System.out.println("4 - Voltar ao MENU PRINCIPAL. ");
 					System.out.println("OPÇÃO: ");
 					// Try catch para impedir que pegue input de string em número. 
 					try { 
@@ -189,6 +207,12 @@ public class Menu {
 						System.out
 								.println("O colecionável 'ACTION FIGURE HARLEY QUINN' foi adicionado ao seu carrinho!");
 						break;
+					case 4: 
+						voltar = true; 
+						if (voltar) {
+						    voltar = false;
+						    continue; 
+					}
 					default:
 						System.out.println("Não encontramos essa opção! Tente outra vez!");
 						break;
@@ -200,6 +224,7 @@ public class Menu {
 					System.out.println("1 - Camisetas ");
 					System.out.println("2 - Casacos ");
 					System.out.println("3 - Meias ");
+					System.out.println("4 - Voltar ao MENU PRINCIPAL. ");
 					System.out.println("OPÇÃO: ");
 					// Try catch para impedir que pegue input de string em número. 
 					try {
@@ -222,6 +247,12 @@ public class Menu {
 						carrinho.adicionarItem(vestuario3);
 						System.out.println("A peça 'MEIA' foi adicionada ao seu carrinho!");
 						break;
+					case 4: 
+						voltar = true; 
+						if (voltar) {
+						    voltar = false;
+						    continue; 
+					}
 					default:
 						System.out.println("Não encontramos essa opção! Tente outra vez!");
 						break;
@@ -233,6 +264,7 @@ public class Menu {
 					System.out.println("1 - Posters. ");
 					System.out.println("2 - Organizador de livros. ");
 					System.out.println("3 - Porta-lápis. ");
+					System.out.println("4 - Voltar ao MENU PRINCIPAL. ");
 					System.out.println("OPÇÃO: ");
 					// Try catch para impedir que pegue input de string em número. 
 					try { 
@@ -256,6 +288,12 @@ public class Menu {
 						carrinho.adicionarItem(decoracao3);
 						System.out.println("O item 'PORTA-LÁPIS' foi adicionada ao seu carrinho!");
 						break;
+					case 4: 
+						voltar = true; 
+						if (voltar) {
+						    voltar = false;
+						    continue; 
+					}
 					default:
 						System.out.println("Não encontramos essa opção! Tente outra vez!");
 						break;
@@ -266,6 +304,7 @@ public class Menu {
 					System.out.println("Selecione um produto: ");
 					System.out.println("1 - Lâmpadas LED inteligentes. ");
 					System.out.println("2 - Óculos de Realidade Virtual. ");
+					System.out.println("3 - Voltar ao MENU PRINCIPAL. ");
 					System.out.println("OPÇÃO: ");
 					// Try catch para impedir que pegue input de string em número. 
 					try {
@@ -284,6 +323,19 @@ public class Menu {
 					case 2:
 						carrinho.adicionarItem(tecnologia2);
 						System.out.println("O item 'ÓCULOS DE REALIDADE VIRTUAL' foi adicionada ao seu carrinho!");
+					case 3: 
+						voltar = true; 
+						if (voltar) {
+						    voltar = false;
+						    continue; 
+					} break;
+					case 7: 
+						voltar = true; 
+						if (voltar) {
+						    voltar = false;
+						    continue;
+				}
+						break;
 					default:
 						System.out.println("Não encontramos essa opção! Tente outra vez!");
 						break;
@@ -297,6 +349,8 @@ public class Menu {
 				System.out.println("                    CARRINHO DE COMPRAS                          ");
 				System.out.println("-----------------------------------------------------------------");
 				carrinho.mostrarCarrinho();
+				System.out.println("-----------------------------------------------------------------");
+				System.out.println("Total: R$" + carrinho.calcularTotal()); // Mostrar o total do carrinho
 				// System.out.println(" Aqui vai ter que mostrar os produtos dentro do carrinho
 				break;
 			case 3: // Criar conta.

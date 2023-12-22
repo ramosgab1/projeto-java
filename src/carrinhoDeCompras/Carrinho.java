@@ -44,4 +44,11 @@ public class Carrinho {
             }
         }
 }
+	public double calcularTotal() {
+	    double total = 0.0;
+	    for (Produto item : itens) {
+	        total += item.getPreco();
+	    }
+	    return total;
+	}
 }
