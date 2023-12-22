@@ -18,6 +18,7 @@ public class Menu {
 
 		int opcao = 0, numeroConta, opcaoProduto, opcaoQuadrinhos, opcaoJogos, opcaoColecionaveis;
 		int opcaoVestuario, opcaoDecoracao, opcaoTecnologia, numeroContaApagar;
+		int numeroContaBuscar; 
 		String titular;
 
 		// Criando carrinho e produtos;
@@ -278,6 +279,17 @@ public class Menu {
 				System.out.println("                 BUSCAR CONTA POR NÚMERO                         ");
 				System.out.println("-----------------------------------------------------------------");
 				System.out.println("Digite o número da conta: ");
+				 numeroContaBuscar = leia.nextInt(); //JACQUE E LIZA TBM NÃO VOU MENTIR EU PEDI ARREGO AQUI OK
+				 for (Conta conta : contas) { // EU AINDA ME CONFUNDO COM O FOR EACH ME PERDOA
+				        if (conta.getNumero() == numeroContaBuscar) { 
+				            System.out.println("Conta encontrada:");
+				            System.out.println("Número: " + conta.getNumero() + ", Titular: " + conta.getTitular());
+				            break;
+				        }else { 
+	    					    System.out.println("Conta não encontrada.");
+				    }
+				    }
+
 				break;
 			case 6: // Apagar conta.
 				System.out.println("-----------------------------------------------------------------");
@@ -286,7 +298,7 @@ public class Menu {
 				System.out.println("Digite o número da conta que deseja apagar: ");
 				numeroContaApagar = leia.nextInt();
 			    Iterator<Conta> iterator = contas.iterator(); // Não vou mentir, pedi ajuda pros universitários aqui
-			    boolean contaRemovida = false;                // Ainda não sei usar iterator direito. 
+			    boolean contaRemovida = false;                // Ainda não sei usar iterator direito (COPIEI). 
 			    while (iterator.hasNext()) {
 			        Conta conta = iterator.next();
 			        if (conta.getNumero() == numeroContaApagar) {
@@ -308,7 +320,7 @@ public class Menu {
 			    System.out.println("-----------------------------------------------------------------");
 			    System.out.println("             OPÇÃO INVÁLIDA, TENTE OUTRA VEZ!                    ");
 			    System.out.println("-----------------------------------------------------------------");
-			    continue; // Volta para o início do loop para solicitar uma nova opção.
+			    continue;
 			}
 			
 		} while (opcao != 7);
@@ -325,6 +337,7 @@ public class Menu {
 			System.out.println("-----------------------------------------------------------------");
 			System.exit(0);
 
+			// EU SEI QUE EU FIZ MT NESTING SWITCH MAS EU TENTEI!! ME CRITIQUEM COM CARINHO!!! 
 
 	}
 }
